@@ -11,16 +11,16 @@ namespace Import_System.Pages
 {
 
 
-    public partial class DetailsPage
+    public partial class DataEnterPage
     {
 
         /// <summary>
-        /// dataTable1 control.
+        /// btn2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dataTable1;
+        protected global::System.Web.UI.WebControls.Button btn2;
     }
 }
