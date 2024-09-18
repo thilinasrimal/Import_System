@@ -30,7 +30,7 @@ namespace Import_System.Pages
                 string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["dbCon"].ConnectionString;
 
                 // Define your SQL query
-                string query = "SELECT ref_no, log_date, con_no, month, delivery_terms, payment_terms FROM Import_Shedules";
+                string query = "SELECT * FROM Import_Shedules";
 
                 // Create a SqlConnection
                 using (SqlConnection connection = new SqlConnection(connectionString))

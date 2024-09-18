@@ -3,10 +3,45 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style>
         .container-main {
-            margin-left: -200px;
+            margin-left: -300px;
             margin-right: -300px;
             margin-bottom: 40px;
         }
+        .gridview-container {
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+    .gridview-container th, .gridview-container td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    .gridview-container thead {
+        background-color: #deac0f
+    }
+
+        .gridview-container thead th {
+            border-bottom: 2px solid #ddd;
+            font-weight: bold;
+        }
+
+    .gridview-container tbody tr:nth-child(even) {
+        background-color: #f1e19d;
+    }
+
+    .gridview-container tbody tr:hover {
+        background-color: #b6ff00;
+    }
+
+.gridview-footer {
+    background-color: #f4f4f4;
+    border-top: 2px solid #ddd;
+    font-weight: bold;
+}
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
