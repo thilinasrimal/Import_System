@@ -357,13 +357,13 @@ namespace Import_System.Pages
         protected global::System.Web.UI.WebControls.TextBox imp_date;
 
         /// <summary>
-        /// imp_license control.
+        /// import_license control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListItem imp_license;
+        protected global::System.Web.UI.WebControls.CheckBox import_license;
 
         /// <summary>
         /// invoice control.
@@ -372,7 +372,7 @@ namespace Import_System.Pages
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListItem invoice;
+        protected global::System.Web.UI.WebControls.CheckBox invoice;
 
         /// <summary>
         /// packing control.
@@ -381,7 +381,7 @@ namespace Import_System.Pages
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListItem packing;
+        protected global::System.Web.UI.WebControls.CheckBox packing;
 
         /// <summary>
         /// bl control.
@@ -390,7 +390,7 @@ namespace Import_System.Pages
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListItem bl;
+        protected global::System.Web.UI.WebControls.CheckBox bl;
 
         /// <summary>
         /// origin control.
@@ -399,7 +399,7 @@ namespace Import_System.Pages
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListItem origin;
+        protected global::System.Web.UI.WebControls.CheckBox origin;
 
         /// <summary>
         /// assessment control.
@@ -408,7 +408,7 @@ namespace Import_System.Pages
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListItem assessment;
+        protected global::System.Web.UI.WebControls.CheckBox assessment;
 
         /// <summary>
         /// cusdec control.
@@ -417,7 +417,7 @@ namespace Import_System.Pages
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListItem cusdec;
+        protected global::System.Web.UI.WebControls.CheckBox cusdec;
 
         /// <summary>
         /// lc_tt_no control.
@@ -427,6 +427,15 @@ namespace Import_System.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox lc_tt_no;
+
+        /// <summary>
+        /// lc_tt_pay_date control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox lc_tt_pay_date;
 
         /// <summary>
         /// bl_no control.
@@ -492,22 +501,13 @@ namespace Import_System.Pages
         protected global::System.Web.UI.WebControls.TextBox eta;
 
         /// <summary>
-        /// fcl control.
+        /// shipmentTypeRadioButtonList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListItem fcl;
-
-        /// <summary>
-        /// lcl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListItem lcl;
+        protected global::System.Web.UI.WebControls.RadioButtonList shipmentTypeRadioButtonList;
 
         /// <summary>
         /// tran_mode control.
@@ -526,6 +526,15 @@ namespace Import_System.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox doc_bank_date;
+
+        /// <summary>
+        /// copy_doc_agent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox copy_doc_agent;
 
         /// <summary>
         /// ori_doc_agent_date control.

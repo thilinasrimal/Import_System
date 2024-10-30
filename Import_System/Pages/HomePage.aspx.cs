@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Microsoft.AspNet.FriendlyUrls;
 
 namespace Import_System.Pages
 {
@@ -50,6 +51,23 @@ namespace Import_System.Pages
             {
 
             }
+        }
+
+        protected void dataTable1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+
+        }
+
+        protected void Open_Shipment(object sender, GridViewCommandEventArgs e)
+        {
+            int rowIndex = Convert.ToInt32(e.CommandArgument);
+            GridViewRow row = dataTable1.Rows[rowIndex];
+
+            // You can use any data from the row to pass as a query string or to use in the URL
+            string refNo = row.Cells[0].Text;
+            Console.WriteLine(refNo);
+            Response.Redirect($"DataEnterPage.aspx?refNo={refNo}");
+            
         }
     }
 }
