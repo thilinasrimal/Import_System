@@ -249,6 +249,24 @@ namespace Import_System.Pages
         protected global::System.Web.UI.WebControls.TextBox insurance_value;
 
         /// <summary>
+        /// IsActive control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList IsActive;
+
+        /// <summary>
+        /// IsCleared control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList IsCleared;
+
+        /// <summary>
         /// trcl_no control.
         /// </summary>
         /// <remarks>
@@ -652,6 +670,15 @@ namespace Import_System.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
+
+        /// <summary>
+        /// updateBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button updateBtn;
 
         /// <summary>
         /// btn2 control.

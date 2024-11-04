@@ -56,9 +56,9 @@
 </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="alert alert-warning" role="alert" id="IsAlert">
+    <%--<div class="alert alert-warning" role="alert" id="IsAlert">
         A simple warning alert—check it out!
-    </div>
+    </div>--%>
     <div class="main-content">
          <asp:HiddenField ID="hfRefNo" runat="server" />
         <div class="tab1">
@@ -201,6 +201,19 @@
                     <label class="form-label">Insurance Value</label>
                     <asp:TextBox ID="insurance_value" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
+            </div>
+            <div class="mb-3">
+                <asp:RadioButtonList ID="IsActive" runat="server" CssClass="form-control">
+                    <asp:ListItem Text="Active" Value="true"></asp:ListItem>
+                    <asp:ListItem Text="Inactive" Value="false"></asp:ListItem>
+                </asp:RadioButtonList>
+            </div>
+            <div class="mb-3">
+                <label style="font-weight:500;">Cleared</label>
+                <asp:RadioButtonList ID="IsCleared" runat="server" CssClass="form-control">
+                    <asp:ListItem Text="Yes" Value="true"></asp:ListItem>
+                    <asp:ListItem Text="No" Value="false"></asp:ListItem>
+                </asp:RadioButtonList>
             </div>
         </div>
 
@@ -403,6 +416,7 @@
 
     <div class="btn-set">
         <asp:Button ID="Button1" runat="server" CssClass="btn btn-success" Text="Save" OnClick="Save_Button_Click" />
+        <asp:Button ID="updateBtn" runat="server" CssClass="btn btn-primary" Text="Update" OnClick="UpdateBtnClick" Visible="false" />
         <asp:Button ID="btn2" runat="server" CssClass="btn btn-secondary" Text="Cancel" OnClick="Cancel_Button_Click" />
     </div>
      <asp:Label ID="lblSuccessMessage" runat="server" ForeColor="Green" Text=""></asp:Label>

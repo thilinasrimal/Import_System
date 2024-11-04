@@ -35,6 +35,11 @@
         font-size:20px;
         font-weight:600;
     }
+    .nav-item{
+        font-weight:500;
+        border:groove;
+        border-radius:13px;
+    }
 </style>
 </head>
 <body>
@@ -66,8 +71,8 @@
                 </button>
                 <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <%--<li class="nav-item"><a class="nav-link" runat="server" href="Pages/HomePage.aspx">Imports Status</a></li>--%>
-                        <%--<li class="nav-item"><a class="nav-link" runat="server" href="Pages/DetailsPage.aspx">Imports : Details </a></li>--%>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="Pages/ActivePage.aspx">Active</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="Pages/ClearedPage.aspx">Cleared</a></li>
                         <%--<li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contact</a></li>--%>
                     </ul>
                 </div>
