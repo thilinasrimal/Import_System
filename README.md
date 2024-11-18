@@ -1,0 +1,1 @@
+This project is for company imports manageing. That include shipment tracking, details entering, updating and removing. Using this system users can view the status of each shipment and enter new shipments and also update current shipments ststus and details.
