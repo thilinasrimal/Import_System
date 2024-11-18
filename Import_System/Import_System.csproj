@@ -118,6 +118,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Pages\ActivePage.aspx" />
+    <Content Include="Pages\ClearedPage.aspx" />
     <Content Include="Pages\DataEnterPage.aspx" />
     <Content Include="Pages\DetailsPage.aspx" />
     <Content Include="Pages\HomePage.aspx" />
@@ -190,6 +192,20 @@
     <Compile Include="Data\DbConnect.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ActivePage.aspx.cs">
+      <DependentUpon>ActivePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ActivePage.aspx.designer.cs">
+      <DependentUpon>ActivePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ClearedPage.aspx.cs">
+      <DependentUpon>ClearedPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ClearedPage.aspx.designer.cs">
+      <DependentUpon>ClearedPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\DataEnterPage.aspx.cs">
       <DependentUpon>DataEnterPage.aspx</DependentUpon>

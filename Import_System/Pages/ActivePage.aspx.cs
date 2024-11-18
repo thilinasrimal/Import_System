@@ -6,11 +6,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Microsoft.AspNet.FriendlyUrls;
 
 namespace Import_System.Pages
 {
-    public partial class HomePage : System.Web.UI.Page
+    public partial class ActivePage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,7 +18,7 @@ namespace Import_System.Pages
                 string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["dbCon"].ConnectionString;
 
                 // Define your SQL query
-                string query = "SELECT * FROM Import_Shedules where IsDelete is NULL";
+                string query = "SELECT * FROM Import_Shedules where IsActive=1 and IsDelete is NULL";
 
                 // Create a SqlConnection
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -50,39 +49,6 @@ namespace Import_System.Pages
             catch (Exception ex)
             {
 
-            }
-        }
-
-        protected void dataTable1_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-
-        }
-
-        protected void Open_Shipment(object sender, GridViewCommandEventArgs e)
-        {
-            try
-            {
-                int rowIndex = Convert.ToInt32(e.CommandArgument);
-                GridViewRow row = dataTable1.Rows[rowIndex];
-
-                string refNo = row.Cells[0].Text;
-                Console.WriteLine(refNo);
-
-                if (!string.IsNullOrEmpty(refNo))
-                {
-                    //Response.Redirect($"DataEnterPage.aspx?refNo={refNo}");
-                    Response.Redirect($"DataEnterPage.aspx?refNo={refNo}", false);
-                    Context.ApplicationInstance.CompleteRequest();
-                }
-                else
-                {
-                    
-                }
-            }
-            catch (Exception ex)
-            {
-                // Log the exception or show an error message to the user
-                Console.Error.WriteLine($"Error: {ex.Message}");
             }
         }
     }

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="Import_System.Pages.HomePage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ClearedPage.aspx.cs" Inherits="Import_System.Pages.ClearedPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style>
@@ -7,56 +7,58 @@
             margin-right: -300px;
             margin-bottom: 40px;
         }
+
         .gridview-container {
-    width: 90%;
-    margin: 0 auto;
-    border-collapse: collapse;
-    font-family: Arial, sans-serif;
-}
+            width: 90%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+        }
 
-    .gridview-container th, .gridview-container td {
-        padding: 10px;
-        border: 1px solid #ddd;
-        text-align: left;
-    }
+            .gridview-container th, .gridview-container td {
+                padding: 10px;
+                border: 1px solid #ddd;
+                text-align: left;
+            }
 
-    .gridview-container thead {
-        background-color: #deac0f
-    }
+            .gridview-container thead {
+                background-color: #deac0f
+            }
 
-        .gridview-container thead th {
-            border-bottom: 2px solid #ddd;
+                .gridview-container thead th {
+                    border-bottom: 2px solid #ddd;
+                    font-weight: bold;
+                }
+
+            .gridview-container tbody tr:nth-child(even) {
+                background-color: #f1e19d;
+            }
+
+            .gridview-container tbody tr:hover {
+                background-color: #b6ff00;
+            }
+
+        .gridview-footer {
+            background-color: #f4f4f4;
+            border-top: 2px solid #ddd;
             font-weight: bold;
         }
 
-    .gridview-container tbody tr:nth-child(even) {
-        background-color: #f1e19d;
-    }
-
-    .gridview-container tbody tr:hover {
-        background-color: #b6ff00;
-    }
-
-.gridview-footer {
-    background-color: #f4f4f4;
-    border-top: 2px solid #ddd;
-    font-weight: bold;
-}
-.icon{
-    width:24px;
-    height:auto;
-}
+        .icon {
+            width: 24px;
+            height: auto;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-main">
-        <asp:GridView ID="dataTable1" runat="server" OnRowCommand="Open_Shipment" AllowSorting="True" AutoGenerateColumns="False"
-            BorderColor="#CCCCCC" BackColor="#FFFF66" BorderStyle="None" BorderWidth="1px" CellPadding="4" GridLines="Horizontal" Font-Size="Small" ShowFooter="True" Width="95%" CssClass="gridview-container">
+        <asp:GridView ID="dataTable1" runat="server" AllowSorting="True" AutoGenerateColumns="False"
+            BorderColor="#CCCCCC" BackColor="#99ff66" BorderStyle="None" BorderWidth="1px" CellPadding="4" GridLines="Horizontal" Font-Size="Small" ShowFooter="True" Width="95%" CssClass="gridview-container">
 
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="black" CssClass="GVFixedFooter" />
             <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="Black" CssClass="GVFixedHeader" />
             <Columns>
-                <asp:BoundField DataField="ref_no" HeaderText="Ref No" >
+                <asp:BoundField DataField="ref_no" HeaderText="Ref No">
                     <FooterStyle CssClass="gridViewHeader" HorizontalAlign="Right" />
                     <HeaderStyle HorizontalAlign="center" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
                     <ItemStyle HorizontalAlign="left" Width="4%" />
@@ -81,10 +83,6 @@
                     <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
                     <ItemStyle HorizontalAlign="left" Width="7%" Font-Bold="True" />
                 </asp:BoundField>
-                <asp:BoundField DataField="no_of_containers" HeaderText="No of Containers">
-                    <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
-                    <ItemStyle HorizontalAlign="left" Width="7%" Font-Bold="True" />
-                </asp:BoundField>
                 <asp:BoundField DataField="ETD" HeaderText="ETD">
                     <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
                     <ItemStyle HorizontalAlign="left" Width="10%" Font-Bold="True" />
@@ -93,11 +91,11 @@
                     <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
                     <ItemStyle HorizontalAlign="left" Width="10%" Font-Bold="True" />
                 </asp:BoundField>
-                <asp:BoundField DataField="Shipping_line" HeaderText="Shipping Line">
+                <asp:BoundField DataField="fcl_20ft" HeaderText="FCL-20">
                     <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
                     <ItemStyle HorizontalAlign="left" Width="7%" Font-Bold="True" />
                 </asp:BoundField>
-                <asp:BoundField DataField="vessel_flight" HeaderText="Vessel / Flight">
+                <asp:BoundField DataField="fcl_40ft" HeaderText="FCL-40">
                     <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
                     <ItemStyle HorizontalAlign="left" Width="7%" Font-Bold="True" />
                 </asp:BoundField>
@@ -113,7 +111,7 @@
                     <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
                     <ItemStyle HorizontalAlign="left" Width="30%" Font-Bold="True" />
                 </asp:BoundField>
-                <asp:ButtonField ButtonType="Image" ImageUrl="https://img.icons8.com/ios-filled/50/fine-print.png" CommandName="Navigate"  ControlStyle-CssClass="icon" />
+                <%--<asp:ButtonField ButtonType="Image" ImageUrl="https://img.icons8.com/ios-filled/50/fine-print.png" CommandName="Navigate"  ControlStyle-CssClass="icon" />--%>
             </Columns>
             <RowStyle Height="30px" />
             <FooterStyle BackColor="#E3EAF3" Font-Bold="true" />

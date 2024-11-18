@@ -22,6 +22,7 @@ namespace Import_System
             //this.btn.Visible = false;
             ///this.btn2.Visible = true;
             Response.Redirect("DataEnterPage.aspx");
+            
             //Console.WriteLine("add btn");
 
         }
