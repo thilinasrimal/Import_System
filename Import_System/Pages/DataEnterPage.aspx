@@ -60,7 +60,8 @@
         A simple warning alert—check it out!
     </div>--%>
     <div class="main-content">
-         <asp:HiddenField ID="hfRefNo" runat="server" />
+         
+        <asp:HiddenField ID="hfRefNo" runat="server" />
         <div class="tab1">
             <div class="tab1-1">
                 <div class="mb-3 mr-2">
@@ -68,8 +69,8 @@
                     <asp:TextBox ID="con_no" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Month</label>
-                    <asp:TextBox ID="month" runat="server" CssClass="form-control"></asp:TextBox>
+                    <label class="form-label">Con. Date</label>
+                    <asp:TextBox ID="con_date" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
             <div class="tab1-1">
@@ -121,9 +122,13 @@
                     <label class="form-label">Item</label>
                     <asp:TextBox ID="item" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="mb-3" style="width: 85px">
+                <div class="mb-2 mr-2" style="width: 85px">
                     <label class="form-label">Qty</label>
                     <asp:TextBox ID="qty" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="mb-2" style="width: 85px">
+                    <label class="form-label">No.of Con</label>
+                    <asp:TextBox ID="no_of_containers" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
             <div class="tab1-1">
@@ -150,12 +155,17 @@
                 <div class="mb-3 mr-2" style="width: 150px">
                     <label class="form-label">Bank</label>
                     
-                  
                     <asp:DropDownList ID="bank" runat="server" CssClass="form-control">
                         <asp:ListItem Text="Select a bank" Value=""  Selected="true"></asp:ListItem>
                         <asp:ListItem Text="Amana Bank" Value="Amana Bank"></asp:ListItem>
                         <asp:ListItem Text="Commercial Bank" Value="Commercial Bank"></asp:ListItem>
+                        <asp:ListItem Text="NDB" Value="NDB"></asp:ListItem>
+                        <asp:ListItem Text="Standard Charted" Value="Standard Charted"></asp:ListItem>
                     </asp:DropDownList>
+                </div>
+                <div class="mb-3 mr-2">
+                    <label class="form-label">Payment: Received Date</label>
+                    <asp:TextBox ID="payment_sumbit_bank" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
             <div class="tab1-1">
@@ -306,9 +316,29 @@
                 <label class="form-label">Shipping Line</label>
                 <asp:TextBox ID="shipping_line" runat="server" CssClass="form-control"></asp:TextBox>
             </div>
-            <div class="mb-3">
+            <div class="mb-3" style="border-bottom: groove; padding-bottom:2px;">
                 <label class="form-label">Vessel / Flight</label>
                 <asp:TextBox ID="vessel_flight" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="tab1-1">
+                <div class="mb-3 mr-2">
+                    <label class="form-label">Duty Paid Date</label>
+                    <asp:TextBox ID="duty_date" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Duty Value</label>
+                    <asp:TextBox ID="duty_value" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+            </div>
+            <div class="tab1-1">
+                <div class="mb-3 mr-2">
+                    <label class="form-label">AE -Duty Date</label>
+                    <asp:TextBox ID="ae_duty_date" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">AE -Duty Value</label>
+                    <asp:TextBox ID="ae_duty_value" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
             </div>
         </div>
 
@@ -343,6 +373,7 @@
                     <asp:ListItem Text="Select a mode" Value=""  Selected="true"></asp:ListItem>
                     <asp:ListItem Text="Sea" Value="Sea"></asp:ListItem>
                     <asp:ListItem Text="Air" Value="Air"></asp:ListItem>
+                    <asp:ListItem Text="Courier" Value="Courier"></asp:ListItem>
                 </asp:DropDownList>
             </div>
             <div class="mb-3 mr-2">
@@ -374,10 +405,10 @@
                 </div>
             </div>
             <div class="tab1-1">
-                <div class="mb-3 mr-2">
+                <%--<div class="mb-3 mr-2">
                     <label class="form-label">Duty Paid Date</label>
                     <asp:TextBox ID="duty_date" runat="server" CssClass="form-control"></asp:TextBox>
-                </div>
+                </div>--%>
                 <div class="mb-3">
                     <label class="form-label">Entry Passed Date</label>
                     <asp:TextBox ID="entry_passed_date" runat="server" CssClass="form-control"></asp:TextBox>
@@ -411,6 +442,16 @@
                 <label class="form-label">Remark</label>
                 <asp:TextBox ID="remark4" runat="server" CssClass="form-control"></asp:TextBox>
             </div>
+            <div class="tab1-1">
+                <div class="mb-3 mr-2">
+                    <label class="form-label">GRN No</label>
+                    <asp:TextBox ID="grn_no" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">GRN - Date</label>
+                    <asp:TextBox ID="grn_date" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -418,6 +459,7 @@
         <asp:Button ID="Button1" runat="server" CssClass="btn btn-success" Text="Save" OnClick="Save_Button_Click" />
         <asp:Button ID="updateBtn" runat="server" CssClass="btn btn-primary" Text="Update" OnClick="UpdateBtnClick" Visible="false" />
         <asp:Button ID="btn2" runat="server" CssClass="btn btn-secondary" Text="Cancel" OnClick="Cancel_Button_Click" />
+        <asp:Button ID="deleteBtn" runat="server" CssClass="btn btn-danger" Text="Delete" OnClick="DeleteBtnClick" Visible="false" />
     </div>
      <asp:Label ID="lblSuccessMessage" runat="server" ForeColor="Green" Text=""></asp:Label>
     <asp:Label ID="lblErrorMsg" runat="server" ForeColor="Red" Text=""></asp:Label>

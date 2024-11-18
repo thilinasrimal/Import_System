@@ -81,6 +81,10 @@
                     <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
                     <ItemStyle HorizontalAlign="left" Width="7%" Font-Bold="True" />
                 </asp:BoundField>
+                <asp:BoundField DataField="no_of_containers" HeaderText="No of Containers">
+                    <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
+                    <ItemStyle HorizontalAlign="left" Width="7%" Font-Bold="True" />
+                </asp:BoundField>
                 <asp:BoundField DataField="ETD" HeaderText="ETD">
                     <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
                     <ItemStyle HorizontalAlign="left" Width="10%" Font-Bold="True" />
@@ -89,11 +93,11 @@
                     <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
                     <ItemStyle HorizontalAlign="left" Width="10%" Font-Bold="True" />
                 </asp:BoundField>
-                <asp:BoundField DataField="fcl_20ft" HeaderText="FCL-20">
+                <asp:BoundField DataField="Shipping_line" HeaderText="Shipping Line">
                     <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
                     <ItemStyle HorizontalAlign="left" Width="7%" Font-Bold="True" />
                 </asp:BoundField>
-                <asp:BoundField DataField="fcl_40ft" HeaderText="FCL-40">
+                <asp:BoundField DataField="vessel_flight" HeaderText="Vessel / Flight">
                     <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
                     <ItemStyle HorizontalAlign="left" Width="7%" Font-Bold="True" />
                 </asp:BoundField>

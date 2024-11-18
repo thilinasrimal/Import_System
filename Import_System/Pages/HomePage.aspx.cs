@@ -19,7 +19,7 @@ namespace Import_System.Pages
                 string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["dbCon"].ConnectionString;
 
                 // Define your SQL query
-                string query = "SELECT * FROM Import_Shedules";
+                string query = "SELECT * FROM Import_Shedules where IsDelete is NULL";
 
                 // Create a SqlConnection
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -60,14 +60,30 @@ namespace Import_System.Pages
 
         protected void Open_Shipment(object sender, GridViewCommandEventArgs e)
         {
-            int rowIndex = Convert.ToInt32(e.CommandArgument);
-            GridViewRow row = dataTable1.Rows[rowIndex];
+            try
+            {
+                int rowIndex = Convert.ToInt32(e.CommandArgument);
+                GridViewRow row = dataTable1.Rows[rowIndex];
 
-            // You can use any data from the row to pass as a query string or to use in the URL
-            string refNo = row.Cells[0].Text;
-            Console.WriteLine(refNo);
-            Response.Redirect($"DataEnterPage.aspx?refNo={refNo}");
-            
+                string refNo = row.Cells[0].Text;
+                Console.WriteLine(refNo);
+
+                if (!string.IsNullOrEmpty(refNo))
+                {
+                    //Response.Redirect($"DataEnterPage.aspx?refNo={refNo}");
+                    Response.Redirect($"DataEnterPage.aspx?refNo={refNo}", false);
+                    Context.ApplicationInstance.CompleteRequest();
+                }
+                else
+                {
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the exception or show an error message to the user
+                Console.Error.WriteLine($"Error: {ex.Message}");
+            }
         }
     }
 }
