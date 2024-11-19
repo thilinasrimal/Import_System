@@ -82,7 +82,7 @@ namespace Import_System.Pages
                 slsi_date.Attributes.Add("type", "date");
                 ssea_date.Attributes.Add("type", "date");
                 imp_date.Attributes.Add("type", "date");
-                lc_tt_pay_date.Attributes.Add("type", "date");
+                //lc_tt_pay_date.Attributes.Add("type", "date");
                 grn_date.Attributes.Add("type", "date");
                 copy_doc_agent.Attributes.Add("type", "datetime-local");
             }
@@ -245,17 +245,23 @@ namespace Import_System.Pages
             origin.Checked = Convert.ToBoolean(row["origin"]);
             assessment.Checked = Convert.ToBoolean(row["Assessment"]);
             cusdec.Checked = Convert.ToBoolean(row["cusdec"]);
+            lc_tt.Checked = Convert.ToBoolean(row["lc_tt"]);
+            fright.Checked = Convert.ToBoolean(row["fright"]);
+            Insurance.Checked = Convert.ToBoolean(row["insurance"]);
+            pl.Checked = Convert.ToBoolean(row["pl"]);
+
             lc_tt_no.Text = row["LC_TT_no"].ToString();
-            string lcTtPayDateString = row["lc_tt_payment_date"].ToString();
-            DateTime lcTtPayDate;
-            if (!string.IsNullOrEmpty(lcTtPayDateString) && DateTime.TryParse(lcTtPayDateString, out lcTtPayDate))
-            {
-                lc_tt_pay_date.Text = lcTtPayDate.ToString("yyyy-MM-dd");
-            }
-            else
-            {
-                lc_tt_pay_date.Text = ""; // or set to null if needed
-            }
+
+            //string lcTtPayDateString = row["lc_tt_payment_date"].ToString();
+            //DateTime lcTtPayDate;
+            //if (!string.IsNullOrEmpty(lcTtPayDateString) && DateTime.TryParse(lcTtPayDateString, out lcTtPayDate))
+            //{
+            //    lc_tt_pay_date.Text = lcTtPayDate.ToString("yyyy-MM-dd");
+            //}
+            //else
+            //{
+            //    lc_tt_pay_date.Text = ""; // or set to null if needed
+            //}
             bl_no.Text = row["BL_number"].ToString();
             shipping_line.Text = row["Shipping_line"].ToString();
             vessel_flight.Text = row["vessel_flight"].ToString();
@@ -491,6 +497,11 @@ namespace Import_System.Pages
                     cmd.Parameters.AddWithValue("@origin", origin.Checked);
                     cmd.Parameters.AddWithValue("@assessment", assessment.Checked);
                     cmd.Parameters.AddWithValue("@cusdec", cusdec.Checked);
+                    cmd.Parameters.AddWithValue("@lc_tt", lc_tt.Checked);
+                    cmd.Parameters.AddWithValue("@fright", fright.Checked);
+                    cmd.Parameters.AddWithValue("@insurance", Insurance.Checked);
+                    cmd.Parameters.AddWithValue("@pl", pl.Checked);
+
                     cmd.Parameters.AddWithValue("@import_licence_no", string.IsNullOrWhiteSpace(imp_license_no.Text) ? (object)DBNull.Value : imp_license_no.Text);
                     cmd.Parameters.AddWithValue("@insurance_policy_no", string.IsNullOrWhiteSpace(insurance_policy_no.Text) ? (object)DBNull.Value : insurance_policy_no.Text);
                     cmd.Parameters.AddWithValue("@LC_TT_no", string.IsNullOrWhiteSpace(lc_tt_no.Text) ? (object)DBNull.Value : lc_tt_no.Text);
@@ -756,6 +767,11 @@ namespace Import_System.Pages
                     cmd.Parameters.AddWithValue("@origin", origin.Checked);
                     cmd.Parameters.AddWithValue("@assessment", assessment.Checked);
                     cmd.Parameters.AddWithValue("@cusdec", cusdec.Checked);
+                    cmd.Parameters.AddWithValue("@lc_tt", lc_tt.Checked);
+                    cmd.Parameters.AddWithValue("@fright", fright.Checked);
+                    cmd.Parameters.AddWithValue("@insurance", Insurance.Checked);
+                    cmd.Parameters.AddWithValue("@pl", pl.Checked);
+
                     cmd.Parameters.AddWithValue("@import_licence_no", string.IsNullOrWhiteSpace(imp_license_no.Text) ? (object)DBNull.Value : imp_license_no.Text);
                     cmd.Parameters.AddWithValue("@insurance_policy_no", string.IsNullOrWhiteSpace(insurance_policy_no.Text) ? (object)DBNull.Value : insurance_policy_no.Text);
                     cmd.Parameters.AddWithValue("@LC_TT_no", string.IsNullOrWhiteSpace(lc_tt_no.Text) ? (object)DBNull.Value : lc_tt_no.Text);
@@ -982,8 +998,12 @@ namespace Import_System.Pages
             origin.Checked = false;
             assessment.Checked = false;
             cusdec.Checked = false;
+            lc_tt.Checked = false;
+            fright.Checked = false;
+            Insurance.Checked = false;
+            pl.Checked = false;
 
-            lc_tt_no.Text = lc_tt_pay_date.Text = bl_no.Text = shipping_line.Text = vessel_flight.Text = "";
+            lc_tt_no.Text = bl_no.Text = shipping_line.Text = vessel_flight.Text = "";
             est_load_date.Text = etd.Text = eta.Text = remark1.Text = "";
             //Radio Buttons
             shipmentTypeRadioButtonList.SelectedValue = "";
