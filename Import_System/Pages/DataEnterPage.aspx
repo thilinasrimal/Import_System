@@ -53,7 +53,7 @@
             var alertBox = document.getElementById("IsAlert");
             alertBox.style.display = "none"; // Hides the alert
         });
-</script>
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%--<div class="alert alert-warning" role="alert" id="IsAlert">
@@ -68,12 +68,10 @@
                     <label class="form-label">Consignment No</label>
                     <asp:TextBox ID="con_no" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 mr-2">
                     <label class="form-label">Con. Date</label>
                     <asp:TextBox ID="con_date" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-            </div>
-            <div class="tab1-1">
                 <div class="mb-3 mr-2">
                     <label class="form-label">Delivery Terms</label>
                     <asp:TextBox ID="delivery_terms" runat="server" CssClass="form-control"></asp:TextBox>
@@ -106,15 +104,9 @@
                     <label class="form-label">Exporter Name</label>
                     <asp:TextBox ID="exp_name" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-            </div>
-            <div class="tab1-1">
                 <div class="mb-3 mr-2">
                     <label class="form-label">Forwarder</label>
                     <asp:TextBox ID="forwarder" runat="server" CssClass="form-control"></asp:TextBox>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Insurance Policy No</label>
-                    <asp:TextBox ID="insurance_policy_no" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
             <div class="tab1-1">
@@ -153,8 +145,7 @@
             </div>
             <div class="tab1-1">
                 <div class="mb-3 mr-2" style="width: 150px">
-                    <label class="form-label">Bank</label>
-                    
+                    <label class="form-label">Bank</label>                  
                     <asp:DropDownList ID="bank" runat="server" CssClass="form-control">
                         <asp:ListItem Text="Select a bank" Value=""  Selected="true"></asp:ListItem>
                         <asp:ListItem Text="Amana Bank" Value="Amana Bank"></asp:ListItem>
@@ -176,16 +167,15 @@
                         <asp:ListItem Text="No" Value="false"></asp:ListItem>
                     </asp:RadioButtonList>
                 </div>
-            </div>
-            <div class="tab1-1">
                 <div class="mb-1 mr-4">
                     <label class="form-label mr-2">Payment</label>
                     <asp:RadioButtonList ID="IsPayment" runat="server" CssClass="form-control">
                         <asp:ListItem Text="Yes" Value="true"></asp:ListItem>
                         <asp:ListItem Text="No" Value="false"></asp:ListItem>
-                    </asp:RadioButtonList>                    
+                    </asp:RadioButtonList>
                 </div>
             </div>
+            
             <div class="tab1-1">
                 <div class="mb-3 mr-2">
                     <label class="form-label">Freight Date</label>
@@ -211,102 +201,96 @@
                     <label class="form-label">Insurance Value</label>
                     <asp:TextBox ID="insurance_value" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
+                <div class="mb-3">
+                    <label class="form-label">Insurance Policy No</label>
+                    <asp:TextBox ID="insurance_policy_no" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
             </div>
-            <div class="mb-3">
-                <asp:RadioButtonList ID="IsActive" runat="server" CssClass="form-control">
-                    <asp:ListItem Text="Active" Value="true"></asp:ListItem>
-                    <asp:ListItem Text="Inactive" Value="false"></asp:ListItem>
-                </asp:RadioButtonList>
-            </div>
-            <div class="mb-3">
-                <label style="font-weight:500;">Cleared</label>
-                <asp:RadioButtonList ID="IsCleared" runat="server" CssClass="form-control">
-                    <asp:ListItem Text="Yes" Value="true"></asp:ListItem>
-                    <asp:ListItem Text="No" Value="false"></asp:ListItem>
-                </asp:RadioButtonList>
-            </div>
-        </div>
-
-        <div class="tab2">
-            <%--TRCL--%>
+           
             <h5 style="font-weight: 600">Approval</h5>
-            <div class="tab1-1">
+             <%--TRCL--%>
+            <div class="tab1-1" style="border-bottom: groove; padding-bottom: 6px">
                 <div class="mb-3 mr-2">
                     <label class="form-label">TRCL No</label>
                     <asp:TextBox ID="trcl_no" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 mr-2">
                     <label class="form-label">TRCL Value</label>
                     <asp:TextBox ID="trcl_value" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-            </div>
-            <div class="mb-4" style="border-bottom: groove; padding-bottom:6px">
-                <label class="form-label">TRCL Date</label>
-                <asp:TextBox ID="trcl_date" runat="server" CssClass="form-control"></asp:TextBox>
+                <div class="mb-4">
+                    <label class="form-label">TRCL Date</label>
+                    <asp:TextBox ID="trcl_date" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
             </div>
             <%--SLSI--%>
-            <div class="tab1-1">
+            <div class="tab1-1" style="border-bottom: groove; padding-bottom: 6px">
                 <div class="mb-3 mr-2">
                     <label class="form-label">SLSI No</label>
                     <asp:TextBox ID="slsi_no" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 mr-2">
                     <label class="form-label">SLSI Value</label>
                     <asp:TextBox ID="slsi_value" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
+                <div class="mb-3">
+                    <label class="form-label">SLSI Date</label>
+                    <asp:TextBox ID="slsi_date" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
             </div>
-            <div class="mb-3" style="border-bottom: groove; padding-bottom:6px">
-                <label class="form-label">SLSI Date</label>
-                <asp:TextBox ID="slsi_date" runat="server" CssClass="form-control"></asp:TextBox>
-            </div>
-
             <%--SSEA--%>
-            <div class="tab1-1">
+            <div class="tab1-1" style="border-bottom: groove; padding-bottom: 6px">
                 <div class="mb-3 mr-2">
                     <label class="form-label">SSEA No</label>
                     <asp:TextBox ID="ssea_no" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 mr-2">
                     <label class="form-label">SSEA Value</label>
                     <asp:TextBox ID="ssea_value" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
+                <div class="mb-3">
+                    <label class="form-label">SSEA Date</label>
+                    <asp:TextBox ID="ssea_date" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
             </div>
-            <div class="mb-3" style="border-bottom: groove; padding-bottom:6px">
-                <label class="form-label">SSEA Date</label>
-                <asp:TextBox ID="ssea_date" runat="server" CssClass="form-control"></asp:TextBox>
-            </div>
-
-            <div class="tab1-1">
+            <%--IMP--%>
+            <div class="tab1-1" style="border-bottom: groove; padding-bottom: 6px">
                 <div class="mb-3 mr-2">
                     <label class="form-label">Import License No</label>
                     <asp:TextBox ID="imp_license_no" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 mr-2">
                     <label class="form-label">IMP Value</label>
                     <asp:TextBox ID="imp_value" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
+                <div class="mb-3">
+                    <label class="form-label">IMP Date</label>
+                    <asp:TextBox ID="imp_date" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
             </div>
-            <div class="mb-3" style="border-bottom: groove; padding-bottom:6px">
-                <label class="form-label">IMP Date</label>
-                <asp:TextBox ID="imp_date" runat="server" CssClass="form-control"></asp:TextBox>
+            
+        </div>
+
+        <div class="tab2">
+            <div class="tab1-1" style="border-bottom: groove; padding-bottom: 6px">
+                <div class="mb-3">
+                    <div><asp:CheckBox runat="server" ID="import_license" Text="Import License" Value="true" /></div>
+                    <div><asp:CheckBox runat="server" ID="invoice" Text="Invoice" Value="true" /></div>
+                    <div><asp:CheckBox runat="server" ID="packing" Text="Packing" Value="true" /></div>
+                    <div><asp:CheckBox runat="server" ID="bl" Text="BL" Value="true"/></div>
+                    <div><asp:CheckBox runat="server" ID="origin" Text="Origin" Value="true"/></div>
+                    <div><asp:CheckBox runat="server" ID="assessment" Text="Assessment" Value="true" /></div>
+                    <div><asp:CheckBox runat="server" ID="lc_tt" Text="LC/TT" Value="true" /></div>
+                    <div><asp:CheckBox runat="server" ID="cusdec" Text="CUSDEC" Value="true" /></div>
+                    <div><asp:CheckBox runat="server" ID="fright" Text="Fright" Value="true" /></div>
+                    <div><asp:CheckBox runat="server" ID="Insurance" Text="Insurance" Value="true" /></div>
+                    <div><asp:CheckBox runat="server" ID="pl" Text="PI" Value="true" /></div>    
+                </div>
             </div>
 
-            <div class="mb-3" style="border-bottom: groove; padding-bottom:6px">
-                <asp:CheckBox runat="server" ID="import_license" Text="Import License" Value="true" />
-                <asp:CheckBox runat="server" ID="invoice" Text="Invoice" Value="true" />
-                <asp:CheckBox runat="server" ID="packing" Text="Packing" Value="true" />
-                <asp:CheckBox runat="server" ID="bl" Text="BL" Value="true" />
-                <asp:CheckBox runat="server" ID="origin" Text="Origin" Value="true" />
-                <asp:CheckBox runat="server" ID="assessment" Text="Assessment" Value="true" />
-                <asp:CheckBox runat="server" ID="cusdec" Text="CUSDEC" Value="true" />            
-            </div>
             <div class="mb-3">
                 <label class="form-label">LC/TT No</label>
                 <asp:TextBox ID="lc_tt_no" runat="server" CssClass="form-control"></asp:TextBox>
-            </div>
-            <div class="mb-3" padding-bottom: 6px">
-                <label class="form-label">LC/TT Payment Date</label>
-                <asp:TextBox ID="lc_tt_pay_date" runat="server" CssClass="form-control"></asp:TextBox>
             </div>
             <div class="mb-3">
                 <label class="form-label">BL No</label>
@@ -316,48 +300,29 @@
                 <label class="form-label">Shipping Line</label>
                 <asp:TextBox ID="shipping_line" runat="server" CssClass="form-control"></asp:TextBox>
             </div>
-            <div class="mb-3" style="border-bottom: groove; padding-bottom:2px;">
+            <div class="mb-3" style="border-bottom: groove; padding-bottom: 6px;">
                 <label class="form-label">Vessel / Flight</label>
                 <asp:TextBox ID="vessel_flight" runat="server" CssClass="form-control"></asp:TextBox>
             </div>
+            
             <div class="tab1-1">
                 <div class="mb-3 mr-2">
-                    <label class="form-label">Duty Paid Date</label>
-                    <asp:TextBox ID="duty_date" runat="server" CssClass="form-control"></asp:TextBox>
+                    <label class="form-label">Est. Load Date</label>
+                    <asp:TextBox ID="est_load_date" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">Duty Value</label>
-                    <asp:TextBox ID="duty_value" runat="server" CssClass="form-control"></asp:TextBox>
-                </div>
-            </div>
-            <div class="tab1-1">
                 <div class="mb-3 mr-2">
-                    <label class="form-label">AE -Duty Date</label>
-                    <asp:TextBox ID="ae_duty_date" runat="server" CssClass="form-control"></asp:TextBox>
+                    <label class="form-label">ETD</label>
+                    <asp:TextBox ID="etd" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">AE -Duty Value</label>
-                    <asp:TextBox ID="ae_duty_value" runat="server" CssClass="form-control"></asp:TextBox>
+                
+                <div class="mb-3 mr-2">
+                    <label class="form-label">ETA</label>
+                    <asp:TextBox ID="eta" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
-        </div>
-
-        <div class="tab3">
-            <div class="mb-3">
-                <label class="form-label">Estimate Load Date</label>
-                <asp:TextBox ID="est_load_date" runat="server" CssClass="form-control"></asp:TextBox>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">ETD</label>
-                <asp:TextBox ID="etd" runat="server" CssClass="form-control"></asp:TextBox>
-            </div>
-            <div class="mb-3">
+            <div class="mb-3" style="border-bottom: groove; padding-bottom: 6px;">
                 <label class="form-label">Remark</label>
                 <asp:TextBox ID="remark1" runat="server" CssClass="form-control"></asp:TextBox>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">ETA</label>
-                <asp:TextBox ID="eta" runat="server" CssClass="form-control"></asp:TextBox>
             </div>
             <div class="mb-3">
                 <asp:RadioButtonList ID="shipmentTypeRadioButtonList" runat="server" CssClass="form-control">
@@ -366,34 +331,38 @@
                     <asp:ListItem Text="LCL" Value="LCL"></asp:ListItem>
                 </asp:RadioButtonList>
             </div>
-            <div class="mb-3 mr-2" style="width: 150px">
+            <div class="mb-3 mr-2" style="width: 150px; ">
                 <label class="form-label">Trasport Mode</label>
-                
+
                 <asp:DropDownList ID="tran_mode" runat="server" CssClass="form-control">
-                    <asp:ListItem Text="Select a mode" Value=""  Selected="true"></asp:ListItem>
+                    <asp:ListItem Text="Select a mode" Value="" Selected="true"></asp:ListItem>
                     <asp:ListItem Text="Sea" Value="Sea"></asp:ListItem>
                     <asp:ListItem Text="Air" Value="Air"></asp:ListItem>
                     <asp:ListItem Text="Courier" Value="Courier"></asp:ListItem>
                 </asp:DropDownList>
             </div>
-            <div class="mb-3 mr-2">
+            <div class="mb-3 mr-2" style="border-top: groove; padding-bottom: 5px;">
                 <label class="form-label">Document Received - Bank</label>
                 <asp:TextBox ID="doc_bank_date" runat="server" CssClass="form-control"></asp:TextBox>
             </div>
-            <div class="tab1-1">
-                <div class="mb-3 mr-2">
-                    <label class="form-label">Copy Document Handover - Agent</label>
-                    <asp:TextBox ID="copy_doc_agent" runat="server" CssClass="form-control"></asp:TextBox>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Original Docs Handover - Agent</label>
-                    <asp:TextBox ID="ori_doc_agent_date" runat="server" CssClass="form-control"></asp:TextBox>
-                </div>
+            <div class="mb-3 mr-2">
+                <label class="form-label">Copy Document Handover - Agent</label>
+                <asp:TextBox ID="copy_doc_agent" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Original Docs Handover - Agent</label>
+                <asp:TextBox ID="ori_doc_agent_date" runat="server" CssClass="form-control"></asp:TextBox>
             </div>
             <div class="mb-3 mr-2">
                 <label class="form-label">Remark</label>
                 <asp:TextBox ID="remark2" runat="server" CssClass="form-control"></asp:TextBox>
             </div>
+        </div>
+
+        <%---------------3-------------%>
+        <div class="tab3">
+           
+           
             <div class="tab1-1">
                 <div class="mb-3 mr-2">
                     <label class="form-label">CUSDEC Date</label>
@@ -405,20 +374,37 @@
                 </div>
             </div>
             <div class="tab1-1">
-                <%--<div class="mb-3 mr-2">
-                    <label class="form-label">Duty Paid Date</label>
-                    <asp:TextBox ID="duty_date" runat="server" CssClass="form-control"></asp:TextBox>
-                </div>--%>
+    
                 <div class="mb-3">
                     <label class="form-label">Entry Passed Date</label>
                     <asp:TextBox ID="entry_passed_date" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
-            <div class="mb-3 mr-2">
+            <div class="mb-3 mr-2" style="border-bottom: groove; padding-bottom: 5px;">
                 <label class="form-label">Remark</label>
                 <asp:TextBox ID="remark3" runat="server" CssClass="form-control"></asp:TextBox>
             </div>
             <div class="tab1-1">
+                <div class="mb-3 mr-2">
+                    <label class="form-label">Duty Paid Date</label>
+                    <asp:TextBox ID="duty_date" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Duty Value</label>
+                    <asp:TextBox ID="duty_value" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+            </div>
+            <div class="tab1-1" style="border-bottom: groove; padding-bottom: 5px;">
+                <div class="mb-3 mr-2">
+                    <label class="form-label">AE -Duty Date</label>
+                    <asp:TextBox ID="ae_duty_date" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">AE -Duty Value</label>
+                    <asp:TextBox ID="ae_duty_value" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+            </div>
+            
                 <div class="mb-3 mr-2">
                     <label class="form-label">FCL Loaded at Port - Date</label>
                     <asp:TextBox ID="prt_load_date" runat="server" CssClass="form-control"></asp:TextBox>
@@ -427,8 +413,8 @@
                     <label class="form-label">Examination Done Date</label>
                     <asp:TextBox ID="exam_done_date" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-            </div>
-            <div class="tab1-1">
+           
+            
                 <div class="mb-3 mr-2">
                     <label class="form-label">Actual Clearence - Date</label>
                     <asp:TextBox ID="act_clear_date" runat="server" CssClass="form-control"></asp:TextBox>
@@ -437,8 +423,8 @@
                     <label class="form-label">Warehouse Released - Date</label>
                     <asp:TextBox ID="warehouse_date" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-            </div>
-            <div class="mb-3 mr-2">
+            
+            <div class="mb-3 mr-2" style="border-bottom: groove; padding-bottom: 5px;">
                 <label class="form-label">Remark</label>
                 <asp:TextBox ID="remark4" runat="server" CssClass="form-control"></asp:TextBox>
             </div>
@@ -450,6 +436,22 @@
                 <div class="mb-3">
                     <label class="form-label">GRN - Date</label>
                     <asp:TextBox ID="grn_date" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+            </div>
+            <div class="tab1-1">
+                <div class="mb-3 mr-2">
+                    <label style="font-weight: 500;">Status</label>
+                    <asp:RadioButtonList ID="IsActive" runat="server" CssClass="form-control">
+                        <asp:ListItem Text="Active" Value="true"></asp:ListItem>
+                        <asp:ListItem Text="Inactive" Value="false"></asp:ListItem>
+                    </asp:RadioButtonList>
+                </div>
+                <div class="mb-3">
+                    <label style="font-weight: 500;">Clearance Status</label>
+                    <asp:RadioButtonList ID="IsCleared" runat="server" CssClass="form-control">
+                        <asp:ListItem Text="Cleared" Value="true"></asp:ListItem>
+                        <asp:ListItem Text="Clearance" Value="false"></asp:ListItem>
+                    </asp:RadioButtonList>
                 </div>
             </div>
         </div>
