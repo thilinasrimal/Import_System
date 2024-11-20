@@ -97,7 +97,7 @@ namespace Import_System.Pages
             {
                 string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["dbCon"].ConnectionString;
 
-                string query1 = @"SELECT * FROM Import_Shedules is2 WHERE con_no ='" + search_Text + "' or exporter_name LIKE '%" + search_Text + "%' or item_des LIKE '%" + search_Text + "%' or BL_number LIKE '%"+search_Text+"%'";
+                string query1 = @"SELECT * FROM Import_Shedules is2 WHERE con_no ='" + search_Text + "' or exporter_name LIKE '%" + search_Text + "%' or item_des LIKE '%" + search_Text + "%' or BL_number LIKE '%" + search_Text + "%' or Invoice_no LIKE '%" + search_Text + "%' or insurance_policy_no LIKE '%" + search_Text + "%' or LC_TT_no LIKE '%" + search_Text + "%'";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {

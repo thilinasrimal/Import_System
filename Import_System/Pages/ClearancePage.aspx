@@ -82,11 +82,11 @@
             </asp:BoundField>
             <asp:BoundField DataField="ETD" HeaderText="ETD">
                 <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
-                <ItemStyle HorizontalAlign="left" Width="6%" Font-Bold="True" />
+                <ItemStyle HorizontalAlign="left" Width="8%" Font-Bold="True" />
             </asp:BoundField>
             <asp:BoundField DataField="ETA" HeaderText="ETA">
                 <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
-                <ItemStyle HorizontalAlign="left" Width="6%" Font-Bold="True" />
+                <ItemStyle HorizontalAlign="left" Width="8%" Font-Bold="True" />
             </asp:BoundField>
             <asp:BoundField DataField="fcl_20ft" HeaderText="FCL-20">
                 <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
@@ -106,7 +106,7 @@
             </asp:BoundField>
             <asp:BoundField DataField="actual_clearence_date" HeaderText="Actual Clearance Date">
                 <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
-                <ItemStyle HorizontalAlign="left" Width="7%" Font-Bold="True" />
+                <ItemStyle HorizontalAlign="left" Width="8%" Font-Bold="True" />
             </asp:BoundField>
             <%--<asp:ButtonField ButtonType="Image" ImageUrl="https://img.icons8.com/ios-filled/50/fine-print.png" CommandName="Navigate"  ControlStyle-CssClass="icon" />--%>
         </Columns>
