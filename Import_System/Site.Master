@@ -76,6 +76,7 @@
                 <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li><a type="button" style="margin-right:5px" class="btn btn-primary" runat="server" href="Pages/HomePage.aspx">All</a></li>
+                        <li><a type="button" style="margin-right:5px" class="btn btn-secondary" runat="server" href="Pages/PendingPage.aspx">Pending</a></li>
                         <li><a type="button" style="margin-right:5px" class="btn btn-success" runat="server" href="Pages/ActivePage.aspx">Ongoing</a></li>                    
                         <li><a type="button" style="margin-right:5px" class="btn btn-warning" runat="server" href="Pages/ClearancePage.aspx">Clearance</a></li>                    
                         <li><a type="button" class="btn btn-info" runat="server" href="Pages/ClearedPage.aspx">Cleared</a></li>                 

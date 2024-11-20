@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace Import_System.Pages
 {
-    public partial class ActivePage : System.Web.UI.Page
+    public partial class PendingPage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -17,7 +17,7 @@ namespace Import_System.Pages
             {
                 string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["dbCon"].ConnectionString;
 
-                string query = "SELECT * FROM Import_Shedules im where im.IsActive=1 and im.IsDelete is NULL ORDER by im.con_no ASC";
+                string query = "SELECT * FROM Import_Shedules im where im.IsPending=1 and im.IsDelete is NULL ORDER by im.con_no ASC";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -26,7 +26,7 @@ namespace Import_System.Pages
                         connection.Open();
 
                         using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-                        {
+                        { 
                             DataTable dataTable = new DataTable();
                             adapter.Fill(dataTable);
 
