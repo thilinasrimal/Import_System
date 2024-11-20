@@ -46,17 +46,39 @@
     width:24px;
     height:auto;
 }
+
+ .search-container {
+        margin-bottom: 10px;
+    }
+    .search-input {
+        padding: 5px;
+        width: 200px;
+    }
+    .search-button {
+        padding: 5px 10px;
+        margin-left: 5px;
+    }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-main">
-        <asp:GridView  ID="dataTable1" runat="server" OnRowCommand="Open_Shipment" AllowSorting="True" AutoGenerateColumns="False"
+        <div class="search-container">
+            <asp:TextBox ID="txtSearch" runat="server" CssClass="search-input" placeholder="Search..."></asp:TextBox>
+            <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="search-button" OnClick="btnSearch_Click" />
+        </div>
+        <asp:GridView ID="dataTable1" runat="server" OnRowCommand="Open_Shipment" AllowSorting="True" AutoGenerateColumns="False"
             BorderColor="#CCCCCC" BackColor="#FFFF66" BorderStyle="None" BorderWidth="1px" CellPadding="4" GridLines="Horizontal" Font-Size="Small" ShowFooter="True" Width="85%" CssClass="gridview-container">
 
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="black" CssClass="GVFixedFooter" />
             <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="Black" CssClass="GVFixedHeader" />
             <Columns>
-                <asp:BoundField DataField="ref_no" HeaderText="Ref No" >
+                <asp:BoundField DataField="ref_no" HeaderText="Ref No">
+                    <FooterStyle CssClass="gridViewHeader" HorizontalAlign="Right" />
+                    <HeaderStyle HorizontalAlign="center" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
+                    <ItemStyle HorizontalAlign="left" Width="4%" />
+                </asp:BoundField>
+
+                <asp:BoundField DataField="BL_number" HeaderText="BL No" Visible="false">
                     <FooterStyle CssClass="gridViewHeader" HorizontalAlign="Right" />
                     <HeaderStyle HorizontalAlign="center" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
                     <ItemStyle HorizontalAlign="left" Width="4%" />

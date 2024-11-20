@@ -188,8 +188,8 @@ namespace Import_System.Pages
             }
             delivery_order_value.Text = row["delivery_order_value"].ToString();
             insurance_value.Text = row["insurance_value"].ToString();
-            IsActive.SelectedValue = Boolean.Parse(row["IsActive"].ToString()).ToString().ToLower();
-            IsCleared.SelectedValue = Boolean.Parse(row["IsCleared"].ToString()).ToString().ToLower();
+            //IsActive.SelectedValue = Boolean.Parse(row["IsActive"].ToString()).ToString().ToLower();
+            //IsCleared.SelectedValue = Boolean.Parse(row["IsCleared"].ToString()).ToString().ToLower();
             trcl_no.Text = row["TRCL_No"].ToString();
             trcl_value.Text = row["TRCL_Value"].ToString();
             string trclDateString = row["TRCL_Date"].ToString();
@@ -252,16 +252,6 @@ namespace Import_System.Pages
 
             lc_tt_no.Text = row["LC_TT_no"].ToString();
 
-            //string lcTtPayDateString = row["lc_tt_payment_date"].ToString();
-            //DateTime lcTtPayDate;
-            //if (!string.IsNullOrEmpty(lcTtPayDateString) && DateTime.TryParse(lcTtPayDateString, out lcTtPayDate))
-            //{
-            //    lc_tt_pay_date.Text = lcTtPayDate.ToString("yyyy-MM-dd");
-            //}
-            //else
-            //{
-            //    lc_tt_pay_date.Text = ""; // or set to null if needed
-            //}
             bl_no.Text = row["BL_number"].ToString();
             shipping_line.Text = row["Shipping_line"].ToString();
             vessel_flight.Text = row["vessel_flight"].ToString();
@@ -311,6 +301,28 @@ namespace Import_System.Pages
             {
                 shipmentTypeRadioButtonList.Text = "FCL20ft";
             }
+
+            string status1 = row["IsPending"].ToString();
+            string status2 = row["IsActive"].ToString();
+            string status3 = row["IsClearance"].ToString();
+            string status4 = row["IsCleared"].ToString();
+            if (status1 == "True")
+            {
+                RadioButtonList1.Text = "Pending";
+            }
+            else if (status2 == "True")
+            {
+                RadioButtonList1.Text = "Ongoing";
+            }
+            else if (status3 == "True")
+            {
+                RadioButtonList1.Text = "Clearance";
+            }
+            else if (status4 == "True")
+            {
+                RadioButtonList1.Text = "Cleared";
+            }
+
             tran_mode.SelectedValue = row["transport_mode"].ToString();
             string docBankDateString = row["docs_received_bank"].ToString();
             DateTime docBankDate;
@@ -482,8 +494,8 @@ namespace Import_System.Pages
                     cmd.Parameters.AddWithValue("@bank", string.IsNullOrWhiteSpace(bank.Text) ? (object)DBNull.Value : bank.Text.Trim());
                     cmd.Parameters.AddWithValue("@application", IsApplication.SelectedValue);
                     cmd.Parameters.AddWithValue("@payment", IsPayment.SelectedValue);
-                    cmd.Parameters.AddWithValue("@IsActive", IsActive.SelectedValue);
-                    cmd.Parameters.AddWithValue("@IsCleared", IsCleared.SelectedValue);
+                    //cmd.Parameters.AddWithValue("@IsActive", IsActive.SelectedValue);
+                    //cmd.Parameters.AddWithValue("@IsCleared", IsCleared.SelectedValue);
                     cmd.Parameters.AddWithValue("@delivery_order", string.IsNullOrWhiteSpace(delivery_order_date.Text) ? (object)DBNull.Value : delivery_order_date.Text);
                     cmd.Parameters.AddWithValue("@freight_value", string.IsNullOrWhiteSpace(freight_value.Text) ? (object)DBNull.Value : freight_value.Text);
                     cmd.Parameters.AddWithValue("@freight_date", string.IsNullOrWhiteSpace(freight_date.Text) ? (object)DBNull.Value : freight_date.Text);
@@ -695,6 +707,31 @@ namespace Import_System.Pages
                     cmd.Parameters.AddWithValue("@fcl_40ft", fclValue40);
                     cmd.Parameters.AddWithValue("@lcl", lclValue);
 
+                    int pending = 0;
+                    int ongoing = 0;
+                    int clearance = 0;
+                    int cleared = 0;
+
+                    if(RadioButtonList1.SelectedValue == "Pending")
+                    {
+                        pending = 1;
+                    }else if(RadioButtonList1.SelectedValue == "Ongoing")
+                    {
+                        ongoing = 1;
+                    }else if(RadioButtonList1.SelectedValue == "Clearance")
+                    {
+                        clearance = 1;
+                    }else if(RadioButtonList1.SelectedValue == "Cleared")
+                    {
+                        cleared = 1;
+                    }
+
+                    cmd.Parameters.AddWithValue("@IsPending", pending);
+                    cmd.Parameters.AddWithValue("@IsActive", ongoing);
+                    cmd.Parameters.AddWithValue("@IsClearance", clearance);
+                    cmd.Parameters.AddWithValue("@IsCleared", cleared);
+
+
                     cmd.ExecuteNonQuery();
                 }
 
@@ -752,8 +789,8 @@ namespace Import_System.Pages
                     cmd.Parameters.AddWithValue("@bank", string.IsNullOrWhiteSpace(bank.Text) ? (object)DBNull.Value : bank.Text.Trim());
                     cmd.Parameters.AddWithValue("@application", IsApplication.SelectedValue);
                     cmd.Parameters.AddWithValue("@payment", IsPayment.SelectedValue);
-                    cmd.Parameters.AddWithValue("@IsActive", IsActive.SelectedValue);
-                    cmd.Parameters.AddWithValue("@IsCleared", IsCleared.SelectedValue);
+                    //cmd.Parameters.AddWithValue("@IsActive", IsActive.SelectedValue);
+                    //cmd.Parameters.AddWithValue("@IsCleared", IsCleared.SelectedValue);
                     cmd.Parameters.AddWithValue("@delivery_order", string.IsNullOrWhiteSpace(delivery_order_date.Text) ? (object)DBNull.Value : delivery_order_date.Text);
                     cmd.Parameters.AddWithValue("@freight_value", string.IsNullOrWhiteSpace(freight_value.Text) ? (object)DBNull.Value : freight_value.Text);
                     cmd.Parameters.AddWithValue("@freight_date", string.IsNullOrWhiteSpace(freight_date.Text) ? (object)DBNull.Value : freight_date.Text);
@@ -950,6 +987,33 @@ namespace Import_System.Pages
                     cmd.Parameters.AddWithValue("@fcl_40ft", fclValue40);
                     cmd.Parameters.AddWithValue("@lcl", lclValue);
 
+                    int pending = 0;
+                    int ongoing = 0;
+                    int clearance = 0;
+                    int cleared = 0;
+
+                    if (RadioButtonList1.SelectedValue == "Pending")
+                    {
+                        pending = 1;
+                    }
+                    else if (RadioButtonList1.SelectedValue == "Ongoing")
+                    {
+                        ongoing = 1;
+                    }
+                    else if (RadioButtonList1.SelectedValue == "Clearance")
+                    {
+                        clearance = 1;
+                    }
+                    else if (RadioButtonList1.SelectedValue == "Cleared")
+                    {
+                        cleared = 1;
+                    }
+
+                    cmd.Parameters.AddWithValue("@IsPending", pending);
+                    cmd.Parameters.AddWithValue("@IsActive", ongoing);
+                    cmd.Parameters.AddWithValue("@IsClearance", clearance);
+                    cmd.Parameters.AddWithValue("@IsCleared", cleared);
+
                     foreach (SqlParameter param in cmd.Parameters)
                     {
                         Console.WriteLine($"{param.ParameterName}: {param.Value}");
@@ -1007,10 +1071,10 @@ namespace Import_System.Pages
             est_load_date.Text = etd.Text = eta.Text = remark1.Text = "";
             //Radio Buttons
             shipmentTypeRadioButtonList.SelectedValue = "";
+            RadioButtonList1.SelectedValue = "";
             IsApplication.SelectedValue = "";
             IsPayment.SelectedValue = "";
-            IsActive.SelectedValue = "";
-            IsCleared.SelectedValue = "";
+           
 
             tran_mode.SelectedValue = "";
             doc_bank_date.Text = copy_doc_agent.Text = ori_doc_agent_date.Text = remark2.Text = cusdec_date.Text = con_destuff_date.Text = "";
@@ -1051,8 +1115,8 @@ namespace Import_System.Pages
                     cmd.Parameters.AddWithValue("@bank", string.IsNullOrWhiteSpace(bank.Text) ? (object)DBNull.Value : bank.Text.Trim());
                     cmd.Parameters.AddWithValue("@application", IsApplication.SelectedValue);
                     cmd.Parameters.AddWithValue("@payment", IsPayment.SelectedValue);
-                    cmd.Parameters.AddWithValue("@IsActive", IsActive.SelectedValue);
-                    cmd.Parameters.AddWithValue("@IsCleared", IsCleared.SelectedValue);
+                    //cmd.Parameters.AddWithValue("@IsActive", IsActive.SelectedValue);
+                    //cmd.Parameters.AddWithValue("@IsCleared", IsCleared.SelectedValue);
                     cmd.Parameters.AddWithValue("@delivery_order", string.IsNullOrWhiteSpace(delivery_order_date.Text) ? (object)DBNull.Value : delivery_order_date.Text);
                     cmd.Parameters.AddWithValue("@freight_value", string.IsNullOrWhiteSpace(freight_value.Text) ? (object)DBNull.Value : freight_value.Text);
                     cmd.Parameters.AddWithValue("@freight_date", string.IsNullOrWhiteSpace(freight_date.Text) ? (object)DBNull.Value : freight_date.Text);
@@ -1243,6 +1307,34 @@ namespace Import_System.Pages
                     cmd.Parameters.AddWithValue("@fcl_20ft", fclValue20);
                     cmd.Parameters.AddWithValue("@fcl_40ft", fclValue40);
                     cmd.Parameters.AddWithValue("@lcl", lclValue);
+
+                    int pending = 0;
+                    int ongoing = 0;
+                    int clearance = 0;
+                    int cleared = 0;
+
+                    if (RadioButtonList1.SelectedValue == "Pending")
+                    {
+                        pending = 1;
+                    }
+                    else if (RadioButtonList1.SelectedValue == "Ongoing")
+                    {
+                        ongoing = 1;
+                    }
+                    else if (RadioButtonList1.SelectedValue == "Clearance")
+                    {
+                        clearance = 1;
+                    }
+                    else if (RadioButtonList1.SelectedValue == "Cleared")
+                    {
+                        cleared = 1;
+                    }
+
+                    cmd.Parameters.AddWithValue("@IsPending", pending);
+                    cmd.Parameters.AddWithValue("@IsActive", ongoing);
+                    cmd.Parameters.AddWithValue("@IsClearance", clearance);
+                    cmd.Parameters.AddWithValue("@IsCleared", cleared);
+
                     //Delete 
                     cmd.Parameters.AddWithValue("@IsDelete", 1);
 
