@@ -18,7 +18,7 @@ namespace Import_System.Pages
                 string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["dbCon"].ConnectionString;
 
                 // Define your SQL query
-                string query = "SELECT * FROM Import_Shedules where IsActive=1 and IsDelete is NULL";
+                string query = "SELECT * FROM Import_Shedules im where im.IsActive=1 and im.IsDelete is NULL ORDER by im.con_no ASC";
 
                 // Create a SqlConnection
                 using (SqlConnection connection = new SqlConnection(connectionString))

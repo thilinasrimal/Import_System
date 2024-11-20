@@ -440,19 +440,17 @@
             </div>
             <div class="tab1-1">
                 <div class="mb-3 mr-2">
-                    <label style="font-weight: 500;">Status</label>
-                    <asp:RadioButtonList ID="IsActive" runat="server" CssClass="form-control">
-                        <asp:ListItem Text="Active" Value="true"></asp:ListItem>
-                        <asp:ListItem Text="Inactive" Value="false"></asp:ListItem>
-                    </asp:RadioButtonList>
+                    <label style="font-weight: 500;font-weight:600;">Status</label>                   
+                    <div class="mb-3">
+                        <asp:RadioButtonList ID="RadioButtonList1" runat="server" CssClass="form-control">
+                            <asp:ListItem Text="Pending" Value="Pending"></asp:ListItem>
+                            <asp:ListItem Text="Ongoing" Value="Ongoing"></asp:ListItem>
+                            <asp:ListItem Text="Clearance" Value="Clearance"></asp:ListItem>
+                            <asp:ListItem Text="Cleared" Value="Cleared"></asp:ListItem>
+                        </asp:RadioButtonList>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label style="font-weight: 500;">Clearance Status</label>
-                    <asp:RadioButtonList ID="IsCleared" runat="server" CssClass="form-control">
-                        <asp:ListItem Text="Cleared" Value="true"></asp:ListItem>
-                        <asp:ListItem Text="Clearance" Value="false"></asp:ListItem>
-                    </asp:RadioButtonList>
-                </div>
+               
             </div>
         </div>
     </div>

@@ -12,32 +12,26 @@ namespace Import_System.Pages
 {
     public partial class HomePage : System.Web.UI.Page
     {
+        public SqlConnection sql;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
                 string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["dbCon"].ConnectionString;
 
-                // Define your SQL query
-                string query = "SELECT * FROM Import_Shedules where IsDelete is NULL";
+                string query = "SELECT * FROM Import_Shedules im where im.IsDelete is NULL ORDER by im.con_no ASC";
 
-                // Create a SqlConnection
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    // Create a SqlCommand
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        // Open the connection
                         connection.Open();
 
-                        // Create a SqlDataAdapter
                         using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                         {
-                            // Create a DataTable to hold the data
                             DataTable dataTable = new DataTable();
                             adapter.Fill(dataTable);
 
-                            // Bind the DataTable to the GridView
                             dataTable1.DataSource = dataTable;
                             dataTable1.DataBind();
                         }
@@ -70,7 +64,7 @@ namespace Import_System.Pages
 
                 if (!string.IsNullOrEmpty(refNo))
                 {
-                    //Response.Redirect($"DataEnterPage.aspx?refNo={refNo}");
+                    
                     Response.Redirect($"DataEnterPage.aspx?refNo={refNo}", false);
                     Context.ApplicationInstance.CompleteRequest();
                 }
@@ -81,9 +75,53 @@ namespace Import_System.Pages
             }
             catch (Exception ex)
             {
-                // Log the exception or show an error message to the user
+                
                 Console.Error.WriteLine($"Error: {ex.Message}");
             }
         }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchText = txtSearch.Text.Trim();
+            DataTable dt = GetData(searchText);
+            dataTable1.DataSource = dt;
+            dataTable1.DataBind();
+        }
+        private DataTable GetData(string searchText)
+        {
+            
+            string search_Text = searchText;            
+            DataTable dt = new DataTable();
+            
+            try
+            {
+                string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["dbCon"].ConnectionString;
+
+                string query1 = @"SELECT * FROM Import_Shedules is2 WHERE con_no ='" + search_Text + "' or exporter_name LIKE '%" + search_Text + "%' or item_des LIKE '%" + search_Text + "%' or BL_number LIKE '%"+search_Text+"%'";
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query1, connection))
+                    {
+                        connection.Open();
+
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            adapter.Fill(dt);
+                            dataTable1.DataSource = dt;
+                            dataTable1.DataBind();                        
+                        }
+
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return dt;
+        }
+
     }
 }
