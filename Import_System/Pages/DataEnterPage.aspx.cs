@@ -461,6 +461,36 @@ namespace Import_System.Pages
             {
                 grn_date.Text = ""; // or set to null if needed
             }
+
+            pre_costing.Text = row["pre_costing"].ToString();
+            pc_usd_rate.Text = row["pc_usd_rate"].ToString();
+            landing_cost.Text = row["landing_cost"].ToString();
+            lc_usd_rate.Text = row["lc_usd_rate"].ToString();
+            cd_amount.Text = row["container_deposit_amount"].ToString();
+            IsContainerDep.SelectedValue = Boolean.Parse(row["IsContainerDeposit"].ToString()).ToString().ToLower();
+
+            string reqDateString = row["request_date"].ToString();
+            DateTime reqDate;
+            if (!string.IsNullOrEmpty(reqDateString) && DateTime.TryParse(reqDateString, out reqDate))
+            {
+                req_date.Text = reqDate.ToString("yyyy-MM-dd");
+            }
+            else
+            {
+                req_date.Text = ""; // or set to null if needed
+            }
+
+            string cdPayRecDateString = row["con_dep_payment_rec_date"].ToString();
+            DateTime cdPayRecDate;
+            if (!string.IsNullOrEmpty(cdPayRecDateString) && DateTime.TryParse(cdPayRecDateString, out cdPayRecDate))
+            {
+                pay_rec_date.Text = cdPayRecDate.ToString("yyyy-MM-dd");
+            }
+            else
+            {
+                pay_rec_date.Text = ""; // or set to null if needed
+            }
+
         }
 
 
@@ -494,8 +524,6 @@ namespace Import_System.Pages
                     cmd.Parameters.AddWithValue("@bank", string.IsNullOrWhiteSpace(bank.Text) ? (object)DBNull.Value : bank.Text.Trim());
                     cmd.Parameters.AddWithValue("@application", IsApplication.SelectedValue);
                     cmd.Parameters.AddWithValue("@payment", IsPayment.SelectedValue);
-                    //cmd.Parameters.AddWithValue("@IsActive", IsActive.SelectedValue);
-                    //cmd.Parameters.AddWithValue("@IsCleared", IsCleared.SelectedValue);
                     cmd.Parameters.AddWithValue("@delivery_order", string.IsNullOrWhiteSpace(delivery_order_date.Text) ? (object)DBNull.Value : delivery_order_date.Text);
                     cmd.Parameters.AddWithValue("@freight_value", string.IsNullOrWhiteSpace(freight_value.Text) ? (object)DBNull.Value : freight_value.Text);
                     cmd.Parameters.AddWithValue("@freight_date", string.IsNullOrWhiteSpace(freight_date.Text) ? (object)DBNull.Value : freight_date.Text);
@@ -731,6 +759,14 @@ namespace Import_System.Pages
                     cmd.Parameters.AddWithValue("@IsClearance", clearance);
                     cmd.Parameters.AddWithValue("@IsCleared", cleared);
 
+                    cmd.Parameters.AddWithValue("@pre_costing", string.IsNullOrWhiteSpace(pre_costing.Text) ? (object)DBNull.Value : pre_costing.Text);
+                    cmd.Parameters.AddWithValue("@pc_usd_rate", string.IsNullOrWhiteSpace(pc_usd_rate.Text) ? (object)DBNull.Value : pc_usd_rate.Text);
+                    cmd.Parameters.AddWithValue("@landing_cost", string.IsNullOrWhiteSpace(landing_cost.Text) ? (object)DBNull.Value : landing_cost.Text);
+                    cmd.Parameters.AddWithValue("@lc_usd_rate", string.IsNullOrWhiteSpace(lc_usd_rate.Text) ? (object)DBNull.Value : lc_usd_rate.Text);
+                    cmd.Parameters.AddWithValue("@IsContainerDeposit", IsContainerDep.SelectedValue);
+                    cmd.Parameters.AddWithValue("@container_deposit_amount", string.IsNullOrWhiteSpace(cd_amount.Text) ? (object)DBNull.Value : cd_amount.Text);
+                    cmd.Parameters.AddWithValue("@request_date", string.IsNullOrWhiteSpace(req_date.Text) ? (object)DBNull.Value : req_date.Text);
+                    cmd.Parameters.AddWithValue("@con_dep_payment_rec_date", string.IsNullOrWhiteSpace(pay_rec_date.Text) ? (object)DBNull.Value : pay_rec_date.Text);
 
                     cmd.ExecuteNonQuery();
                 }
@@ -1014,6 +1050,15 @@ namespace Import_System.Pages
                     cmd.Parameters.AddWithValue("@IsClearance", clearance);
                     cmd.Parameters.AddWithValue("@IsCleared", cleared);
 
+                    cmd.Parameters.AddWithValue("@pre_costing", string.IsNullOrWhiteSpace(pre_costing.Text) ? (object)DBNull.Value : pre_costing.Text);
+                    cmd.Parameters.AddWithValue("@pc_usd_rate", string.IsNullOrWhiteSpace(pc_usd_rate.Text) ? (object)DBNull.Value : pc_usd_rate.Text);
+                    cmd.Parameters.AddWithValue("@landing_cost", string.IsNullOrWhiteSpace(landing_cost.Text) ? (object)DBNull.Value : landing_cost.Text);
+                    cmd.Parameters.AddWithValue("@lc_usd_rate", string.IsNullOrWhiteSpace(lc_usd_rate.Text) ? (object)DBNull.Value : lc_usd_rate.Text);
+                    cmd.Parameters.AddWithValue("@IsContainerDeposit", IsContainerDep.SelectedValue);
+                    cmd.Parameters.AddWithValue("@container_deposit_amount", string.IsNullOrWhiteSpace(cd_amount.Text) ? (object)DBNull.Value : cd_amount.Text);
+                    cmd.Parameters.AddWithValue("@request_date", string.IsNullOrWhiteSpace(req_date.Text) ? (object)DBNull.Value : req_date.Text);
+                    cmd.Parameters.AddWithValue("@con_dep_payment_rec_date", string.IsNullOrWhiteSpace(pay_rec_date.Text) ? (object)DBNull.Value : pay_rec_date.Text);
+
                     foreach (SqlParameter param in cmd.Parameters)
                     {
                         Console.WriteLine($"{param.ParameterName}: {param.Value}");
@@ -1082,6 +1127,8 @@ namespace Import_System.Pages
             //Response.Redirect("HomePage.aspx");
 
             duty_value.Text = ae_duty_date.Text = ae_duty_value.Text = payment_sumbit_bank.Text = grn_no.Text = grn_date.Text = "";
+            //Newly added lines
+            pre_costing.Text = pc_usd_rate.Text = landing_cost.Text = lc_usd_rate.Text = req_date.Text = pay_rec_date.Text = "";
             
         }
 
@@ -1337,6 +1384,15 @@ namespace Import_System.Pages
 
                     //Delete 
                     cmd.Parameters.AddWithValue("@IsDelete", 1);
+
+                    cmd.Parameters.AddWithValue("@pre_costing", string.IsNullOrWhiteSpace(pre_costing.Text) ? (object)DBNull.Value : pre_costing.Text);
+                    cmd.Parameters.AddWithValue("@pc_usd_rate", string.IsNullOrWhiteSpace(pc_usd_rate.Text) ? (object)DBNull.Value : pc_usd_rate.Text);
+                    cmd.Parameters.AddWithValue("@landing_cost", string.IsNullOrWhiteSpace(landing_cost.Text) ? (object)DBNull.Value : landing_cost.Text);
+                    cmd.Parameters.AddWithValue("@lc_usd_rate", string.IsNullOrWhiteSpace(lc_usd_rate.Text) ? (object)DBNull.Value : lc_usd_rate.Text);
+                    cmd.Parameters.AddWithValue("@IsContainerDeposit", IsContainerDep.SelectedValue);
+                    cmd.Parameters.AddWithValue("@container_deposit_amount", string.IsNullOrWhiteSpace(cd_amount.Text) ? (object)DBNull.Value : cd_amount.Text);
+                    cmd.Parameters.AddWithValue("@request_date", string.IsNullOrWhiteSpace(req_date.Text) ? (object)DBNull.Value : req_date.Text);
+                    cmd.Parameters.AddWithValue("@con_dep_payment_rec_date", string.IsNullOrWhiteSpace(pay_rec_date.Text) ? (object)DBNull.Value : pay_rec_date.Text);
 
                     foreach (SqlParameter param in cmd.Parameters)
                     {

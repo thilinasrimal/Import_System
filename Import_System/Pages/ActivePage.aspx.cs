@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Drawing;
 
 namespace Import_System.Pages
 {
@@ -36,7 +37,23 @@ namespace Import_System.Pages
                     }
                 }
 
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand command1 = new SqlCommand("GetActiveShipmentsByItem", connection))
+                    {
+                        command1.CommandType = CommandType.StoredProcedure;
+                        connection.Open();
 
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command1))
+                        {
+                            DataTable dataTable1 = new DataTable();
+                            adapter.Fill(dataTable1);
+
+                            GrTotal.DataSource = dataTable1;
+                            GrTotal.DataBind();
+                        }
+                    }
+                }
 
             }
             catch (Exception ex)

@@ -121,6 +121,7 @@
     <Content Include="Pages\ActivePage.aspx" />
     <Content Include="Pages\ClearancePage.aspx" />
     <Content Include="Pages\ClearedPage.aspx" />
+    <Content Include="Pages\Dashboard.aspx" />
     <Content Include="Pages\DataEnterPage.aspx" />
     <Content Include="Pages\DetailsPage.aspx" />
     <Content Include="Pages\HomePage.aspx" />
@@ -215,6 +216,13 @@
     </Compile>
     <Compile Include="Pages\ClearedPage.aspx.designer.cs">
       <DependentUpon>ClearedPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\DataEnterPage.aspx.cs">
       <DependentUpon>DataEnterPage.aspx</DependentUpon>
