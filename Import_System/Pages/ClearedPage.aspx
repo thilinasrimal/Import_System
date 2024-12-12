@@ -53,7 +53,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-main">
         <asp:GridView ID="dataTable1" runat="server" AllowSorting="True" AutoGenerateColumns="False"
-            BorderColor="#CCCCCC" BackColor="#99ff66" BorderStyle="None" BorderWidth="1px" CellPadding="4" GridLines="Horizontal" Font-Size="Small" ShowFooter="True" Width="95%" CssClass="gridview-container">
+            BorderColor="#CCCCCC" BackColor="#99ff66" BorderStyle="None" BorderWidth="1px" CellPadding="4" GridLines="Horizontal" Font-Size="10px" ShowFooter="True" Width="75%" CssClass="gridview-container">
 
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="black" CssClass="GVFixedFooter" />
             <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="Black" CssClass="GVFixedHeader" />
@@ -75,6 +75,10 @@
                     <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
                     <ItemStyle HorizontalAlign="left" Width="20%" />
                 </asp:BoundField>
+                <asp:BoundField DataField="forwarder" HeaderText="Forwarder">
+                    <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
+                    <ItemStyle HorizontalAlign="left" Width="4%" Font-Bold="True" />
+                </asp:BoundField>
                 <asp:BoundField DataField="item_des" HeaderText="Item">
                     <HeaderStyle CssClass="gridViewHeader" HorizontalAlign="Right" Font-Bold="True" ForeColor="black" />
                     <ItemStyle HorizontalAlign="left" Width="10%" />
@@ -83,11 +87,11 @@
                     <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
                     <ItemStyle HorizontalAlign="left" Width="7%" Font-Bold="True" />
                 </asp:BoundField>
-                <asp:BoundField DataField="ETD" HeaderText="ETD">
+                <asp:BoundField DataField="ETD" HeaderText="ETD" DataFormatString="{0:dd/MM/yyyy}" HtmlEncode="false">
                     <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
                     <ItemStyle HorizontalAlign="left" Width="10%" Font-Bold="True" />
                 </asp:BoundField>
-                <asp:BoundField DataField="ETA" HeaderText="ETA">
+                <asp:BoundField DataField="ETA" HeaderText="ETA" DataFormatString="{0:dd/MM/yyyy}" HtmlEncode="false">
                     <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
                     <ItemStyle HorizontalAlign="left" Width="10%" Font-Bold="True" />
                 </asp:BoundField>

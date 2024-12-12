@@ -40,7 +40,23 @@
         border:groove;
         border-radius:13px;
     }
-
+    .btnCleared{
+        background-color:#0bc9db;
+        color:black;
+    }
+    .btnPending{
+        background-color:#f9b478;
+    }
+    .btnAll{
+        background-color:white;
+        border:groove;
+    }
+    .btnClearance{
+        background-color:#f7c63f;
+    }
+    .btnOngoing{
+        background-color:#55e43e;
+    }
     @media (){
 
     }
@@ -75,11 +91,11 @@
                 </button>
                 <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li><a type="button" style="margin-right:5px" class="btn btn-primary" runat="server" href="Pages/HomePage.aspx">All</a></li>
-                        <li><a type="button" style="margin-right:5px" class="btn btn-secondary" runat="server" href="Pages/PendingPage.aspx">Pending</a></li>
-                        <li><a type="button" style="margin-right:5px" class="btn btn-success" runat="server" href="Pages/ActivePage.aspx">Ongoing</a></li>                    
-                        <li><a type="button" style="margin-right:5px" class="btn btn-warning" runat="server" href="Pages/ClearancePage.aspx">Clearance</a></li>                    
-                        <li><a type="button" class="btn btn-info" runat="server" href="Pages/ClearedPage.aspx">Cleared</a></li>                 
+                        <li><a type="button" style="margin-right:5px" class="btn btnAll" runat="server" href="Pages/HomePage.aspx">All Shipments</a></li>
+                        <li><a type="button" style="margin-right:5px" class="btn btnPending" runat="server" href="Pages/PendingPage.aspx">Pending</a></li>
+                        <li><a type="button" style="margin-right:5px" class="btn btnOngoing" runat="server" href="Pages/ActivePage.aspx">Ongoing</a></li>                    
+                        <li><a type="button" style="margin-right:5px" class="btn btnClearance" runat="server" href="Pages/ClearancePage.aspx">Clearance</a></li>                    
+                        <li><a type="button" class="btn btnCleared" runat="server" href="Pages/ClearedPage.aspx">Cleared</a></li>                 
                     </ul>
                 </div>
 
@@ -101,6 +117,5 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/Scripts/bootstrap.js") %>
     </asp:PlaceHolder>
-
 </body>
 </html>

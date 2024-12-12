@@ -53,7 +53,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-main">
         <asp:GridView ID="dataTable1" runat="server" AllowSorting="True" AutoGenerateColumns="False"
-            BorderColor="#CCCCCC" BackColor="#ccffff" BorderStyle="None" BorderWidth="1px" CellPadding="4" GridLines="Horizontal" Font-Size="Small" ShowFooter="True" Width="95%" CssClass="gridview-container">
+            BorderColor="#CCCCCC" BackColor="#ccffff" BorderStyle="None" BorderWidth="1px" CellPadding="4" GridLines="Horizontal" Font-Size="10px" ShowFooter="True" Width="75%" CssClass="gridview-container">
 
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="black" CssClass="GVFixedFooter" />
             <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="Black" CssClass="GVFixedHeader" />
@@ -73,7 +73,11 @@
                 <asp:BoundField DataField="exporter_name" HeaderText="Exporter Name">
                     <FooterStyle CssClass="gridViewHeader" HorizontalAlign="Right" />
                     <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
-                    <ItemStyle HorizontalAlign="left" Width="15%" />
+                    <ItemStyle HorizontalAlign="left" Width="12%" />
+                </asp:BoundField>
+                <asp:BoundField DataField="forwarder" HeaderText="Forwarder">
+                    <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
+                    <ItemStyle HorizontalAlign="left" Width="4%" Font-Bold="True" />
                 </asp:BoundField>
                 <asp:BoundField DataField="item_des" HeaderText="Item">
                     <HeaderStyle CssClass="gridViewHeader" HorizontalAlign="Right" Font-Bold="True" ForeColor="black" />
@@ -83,23 +87,27 @@
                     <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
                     <ItemStyle HorizontalAlign="left" Width="6%" Font-Bold="True" />
                 </asp:BoundField>
-                <asp:BoundField DataField="ETD" HeaderText="ETD">
+                <asp:BoundField DataField="no_of_containers" HeaderText="No of Containers">
                     <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
-                    <ItemStyle HorizontalAlign="left" Width="10%" Font-Bold="True" />
+                    <ItemStyle HorizontalAlign="left" Width="4%" Font-Bold="True" />
                 </asp:BoundField>
-                <asp:BoundField DataField="ETA" HeaderText="ETA">
-                    <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
-                    <ItemStyle HorizontalAlign="left" Width="10%" Font-Bold="True" />
-                </asp:BoundField>
-                <asp:BoundField DataField="fcl_20ft" HeaderText="FCL-20">
+                <asp:BoundField DataField="ETD" HeaderText="ETD" DataFormatString="{0:dd/MM/yyyy}" HtmlEncode="false">
                     <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
                     <ItemStyle HorizontalAlign="left" Width="5%" Font-Bold="True" />
                 </asp:BoundField>
-                <asp:BoundField DataField="fcl_40ft" HeaderText="FCL-40">
+                <asp:BoundField DataField="ETA" HeaderText="ETA" DataFormatString="{0:dd/MM/yyyy}" HtmlEncode="false">
                     <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
                     <ItemStyle HorizontalAlign="left" Width="5%" Font-Bold="True" />
                 </asp:BoundField>
-                <asp:BoundField DataField="lcl" HeaderText="LCL">
+                <asp:BoundField DataField="Shipping_line" HeaderText="Shipping Line">
+                    <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
+                    <ItemStyle HorizontalAlign="left" Width="12%" Font-Bold="True" />
+                </asp:BoundField>
+                <asp:BoundField DataField="vessel_flight" HeaderText="Vessel / Flight">
+                    <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
+                    <ItemStyle HorizontalAlign="left" Width="12%" Font-Bold="True" />
+                </asp:BoundField>
+                <asp:BoundField DataField="BL_number" HeaderText="BL Number">
                     <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
                     <ItemStyle HorizontalAlign="left" Width="5%" Font-Bold="True" />
                 </asp:BoundField>
@@ -107,10 +115,7 @@
                     <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
                     <ItemStyle HorizontalAlign="left" Width="7%" Font-Bold="True" />
                 </asp:BoundField>
-                <asp:BoundField DataField="actual_clearence_date" HeaderText="Actual Clearance Date">
-                    <HeaderStyle HorizontalAlign="Right" CssClass="gridViewHeader" Font-Bold="True" ForeColor="black" />
-                    <ItemStyle HorizontalAlign="left" Width="6%" Font-Bold="True" />
-                </asp:BoundField>
+               
                 <%--<asp:ButtonField ButtonType="Image" ImageUrl="https://img.icons8.com/ios-filled/50/fine-print.png" CommandName="Navigate"  ControlStyle-CssClass="icon" />--%>
             </Columns>
             <RowStyle Height="30px" />
